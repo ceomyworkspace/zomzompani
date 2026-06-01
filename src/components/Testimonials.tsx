@@ -56,22 +56,20 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative py-24 sm:py-32 overflow-hidden border-t border-white/5 select-none bg-[#0B0B0C] flex flex-col justify-center min-h-[700px]"
+      className="relative py-14 sm:py-24 border-t border-white/5 select-none bg-[#0B0B0C] flex flex-col justify-center min-h-[520px] sm:min-h-[700px]"
     >
-      {/* Smooth transitioning Background Image Layer with subtle blur */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTestimonial.bgImageUrl}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[3px]"
-            style={{ backgroundImage: `url('${activeTestimonial.bgImageUrl}')` }}
-            referrerPolicy="no-referrer"
+      {/* Smooth hardware-accelerated Background Image Layer with subtle blur */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {TESTIMONIALS.map((t, idx) => (
+          <div
+            key={t.id}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[3px] transition-opacity duration-700 ease-out pointer-events-none"
+            style={{ 
+              backgroundImage: `url('${t.bgImageUrl}')`,
+              opacity: index === idx ? 1 : 0,
+            }}
           />
-        </AnimatePresence>
+        ))}
       </div>
 
       {/* Dark elegant neutral overlay for maximum text contrast and clean image details */}
@@ -80,24 +78,24 @@ export default function Testimonials() {
       {/* Subtle radiating neutral glow behind the card for visual depth */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_65%)] z-10 pointer-events-none" />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 w-full flex flex-col items-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 xs:px-6 md:px-8 w-full flex flex-col items-center">
         
         {/* Minimalist Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-18">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] backdrop-blur-[12px] border border-white/[0.12] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_8px_32px_0_rgba(0,0,0,0.2)] mb-5 select-none hover:bg-white/[0.08] hover:border-white/[0.2] transition-colors duration-300">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-18">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] backdrop-blur-[12px] border border-white/[0.12] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_8px_32px_0_rgba(0,0,0,0.2)] mb-4 select-none hover:bg-white/[0.08] hover:border-white/[0.2] transition-colors duration-300">
             <span className="text-[13px] leading-none mb-0.5 filter drop-shadow-[0_0_4px_rgba(253,224,71,0.5)]">✨</span>
-            <span className="font-sans font-normal text-[12.5px] text-white/80 tracking-wider uppercase">
+            <span className="font-sans font-normal text-[11px] xs:text-[12.5px] text-white/80 tracking-wider uppercase">
               Verified Resident Portraits
             </span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-[44px] font-normal text-white tracking-tight leading-[1.12]">
+          <h2 className="font-serif text-2xl sm:text-4xl md:text-[44px] font-normal text-white tracking-tight leading-[1.12]">
             Stories of Lasting Confidence
           </h2>
-          <div className="h-[2px] w-12 bg-[#C9A84C] mt-5 mx-auto" />
+          <div className="h-[2px] w-12 bg-[#C9A84C] mt-4 sm:mt-5 mx-auto" />
         </div>
 
         {/* Elegant Immersive Glass Card */}
-        <div className="relative w-full max-w-[1000px] min-h-[280px] md:min-h-[380px] lg:h-[340px] rounded-[24px] bg-white/[0.05] backdrop-blur-[25px] border border-white/[0.12] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_30px_70px_rgba(0,0,0,0.5)] overflow-hidden flex items-center p-6 sm:p-10 md:p-12">
+        <div className="relative w-full max-w-[1000px] min-h-[310px] md:min-h-[380px] lg:h-[340px] rounded-[24px] bg-white/[0.05] backdrop-blur-[8px] md:backdrop-blur-[25px] border border-white/[0.12] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_30px_70px_rgba(0,0,0,0.5)] overflow-hidden flex items-center p-5 xs:p-6 sm:p-10 md:p-12">
           
           <AnimatePresence mode="wait">
             <motion.div
@@ -105,27 +103,27 @@ export default function Testimonials() {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center w-full"
+              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center w-full"
             >
               {/* Portrait Column - hidden on mobile */}
               <div className="hidden md:flex col-span-12 md:col-span-4 justify-center md:justify-start">
                 <motion.div
                   variants={{
-                    initial: { opacity: 0, x: 60, rotate: 0 },
+                    initial: { opacity: 0, x: 40 },
                     animate: { 
                       opacity: 1, 
                       x: 0, 
                       rotate: -2,
                       transition: { 
-                        duration: 0.7, 
+                        duration: 0.6, 
                         ease: [0.22, 1, 0.36, 1] 
                       } 
                     },
                     exit: { 
                       opacity: 0, 
-                      x: -60,
+                      x: -40,
                       transition: { 
-                        duration: 0.5, 
+                        duration: 0.4, 
                         ease: [0.22, 1, 0.36, 1] 
                       } 
                     }
@@ -145,60 +143,60 @@ export default function Testimonials() {
               <div className="col-span-12 md:col-span-8 flex flex-col justify-center text-left relative md:-ml-8 z-10">
                 <motion.div
                   variants={{
-                    initial: { opacity: 0, x: 40 },
+                    initial: { opacity: 0, x: 20 },
                     animate: { 
                       opacity: 1, 
                       x: 0,
                       transition: { 
-                        delay: 0.15,
-                        duration: 0.7, 
+                        delay: 0.1,
+                        duration: 0.4, 
                         ease: [0.22, 1, 0.36, 1] 
                       } 
                     },
                     exit: { 
                       opacity: 0, 
-                      x: -30,
+                      x: -20,
                       transition: { 
-                        duration: 0.5, 
+                        duration: 0.3, 
                         ease: [0.22, 1, 0.36, 1] 
                       } 
                     }
                   }}
                 >
-                  {/* Decorative quotation mark behind content (150px, Prestige Gold at 10% opacity) */}
-                  <div className="absolute -top-14 -left-8 font-serif text-[150px] text-[#C9A84C]/10 select-none leading-none pointer-events-none z-0">
+                  {/* Decorative quotation mark behind content (120px sm:150px, Prestige Gold at 10% opacity) */}
+                  <div className="absolute -top-11 sm:-top-14 -left-3 sm:-left-8 font-serif text-[100px] sm:text-[150px] text-[#C9A84C]/8 select-none leading-none pointer-events-none z-0">
                     “
                   </div>
 
                   <div className="relative z-10 flex flex-col">
                     {/* Minimal Star Rating */}
-                    <div className="flex items-center gap-[4px] mb-4">
+                    <div className="flex items-center gap-[4px] mb-3">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-[#C9A84C] text-[#C9A84C] stroke-[1.2]" />
+                        <Star key={i} className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-[#C9A84C] text-[#C9A84C] stroke-[1.2]" />
                       ))}
                     </div>
 
-                    {/* Actual Quote: Cormorant Garamond italic 24px Mint Mist */}
-                    <blockquote className="font-cormorant italic text-xl sm:text-[24px] text-[#E3F0E6] leading-relaxed max-w-[540px] mb-5 font-normal">
+                    {/* Actual Quote: Cormorant Garamond italic responsive Mint Mist */}
+                    <blockquote className="font-cormorant italic text-[14px] xs:text-[15.5px] sm:text-lg md:text-[21px] lg:text-[24px] text-[#E3F0E6] leading-relaxed max-w-[540px] mb-3.5 sm:mb-5 font-normal">
                       "{activeTestimonial.quote}"
                     </blockquote>
 
                     {/* Resident Details */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4">
                       {/* Mobile Only Avatar */}
                       <div className="block md:hidden shrink-0 mt-0.5">
                         <img
                           src={activeTestimonial.imageUrl}
                           alt={activeTestimonial.author}
-                          className="w-12 h-12 rounded-full object-cover border border-white/20 shadow-md"
+                          className="w-10 h-10 rounded-full object-cover border border-white/20 shadow-md"
                           referrerPolicy="no-referrer"
                         />
                       </div>
                       <div className="flex flex-col">
-                        <span className="font-sans font-semibold text-[16px] sm:text-[18px] text-[#C8E6D0] leading-snug">
+                        <span className="font-sans font-semibold text-[14px] sm:text-[18px] text-[#C8E6D0] leading-snug">
                           {activeTestimonial.author}
                         </span>
-                        <span className="font-sans font-normal text-xs sm:text-sm text-[#B2C5B7] mt-0.5">
+                        <span className="font-sans font-normal text-[10.5px] sm:text-sm text-[#B2C5B7] mt-0.5">
                           {activeTestimonial.detail}
                         </span>
                       </div>

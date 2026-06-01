@@ -28,9 +28,9 @@ export default function FeaturedProject({ onOpenBooking }: FeaturedProjectProps)
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch flex-1">
         
         {/* Left Side: Images & Badges with elevated modern frame setup */}
-        <div className="lg:col-span-6 bg-stone-50/60 p-4 sm:p-6 md:p-12 lg:p-16 flex items-center justify-center relative min-h-[320px] sm:min-h-[450px] lg:min-h-auto">
+        <div className="lg:col-span-6 bg-stone-50/60 p-4 sm:p-6 md:p-12 lg:p-16 flex items-center justify-center relative min-h-[380px] sm:min-h-[450px] lg:min-h-auto">
           {/* Main Image Container with double borders and deep elegant shadows */}
-          <div className="relative w-full h-[275px] sm:h-auto min-h-[275px] sm:min-h-[380px] lg:min-h-[500px] rounded-[16px] overflow-hidden bg-white shadow-[0_24px_50px_-12px_rgba(0,0,0,0.18)] border border-stone-200/80 group flex items-stretch">
+          <div className="relative w-full h-full min-h-[340px] sm:min-h-[380px] lg:min-h-[500px] rounded-[16px] overflow-hidden bg-white shadow-[0_24px_50px_-12px_rgba(0,0,0,0.18)] border border-stone-200/80 group flex items-stretch">
             <img
               src="https://i.ibb.co.com/Nn3tz33Z/image.png"
               alt="Galaxy Tower Luxury Residential Development in Mohammadpur Dhaka"
