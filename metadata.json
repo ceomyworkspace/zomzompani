@@ -1,0 +1,6 @@
+{
+  "name": "Zom Zom Builders",
+  "description": "Elegant, premium, and minimal landing page for Zom Zom Builders, a trusted real estate developer in Dhaka, Bangladesh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
