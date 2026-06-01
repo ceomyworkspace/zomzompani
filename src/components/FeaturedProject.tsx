@@ -9,14 +9,28 @@ export default function FeaturedProject({ onOpenBooking }: FeaturedProjectProps)
   return (
     <section
       id="featured-project"
-      className="relative bg-white overflow-hidden min-h-screen flex items-stretch"
+      className="relative bg-white overflow-hidden min-h-screen flex flex-col justify-stretch"
     >
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch">
+      {/* Mobile Title & Headline Header - visible only on mobile/tablet up to large screens */}
+      <div className="block lg:hidden px-4 pt-8 pb-3 bg-white border-b border-stone-100">
+        <span className="font-sans font-semibold text-[10px] text-emerald tracking-[0.15em] uppercase block mb-1.5">
+          FEATURED PROJECT
+        </span>
+        <h2 className="font-serif text-xl font-semibold text-charcoal leading-[1.25] mb-2 max-w-xl">
+          Galaxy Tower — Luxury Living in the Heart of Mohammadpur
+        </h2>
+        <div className="flex items-center gap-1.5 text-sage text-xs">
+          <MapPin className="h-3.5 w-3.5 text-leaf shrink-0" />
+          <span className="line-clamp-2">Plot-11, Road-08, Chand Udyan, Mohammadpur, Dhaka-1207</span>
+        </div>
+      </div>
+
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch flex-1">
         
         {/* Left Side: Images & Badges with elevated modern frame setup */}
-        <div className="lg:col-span-6 bg-stone-50/60 p-4 sm:p-6 md:p-12 lg:p-16 flex items-center justify-center relative min-h-[300px] sm:min-h-[450px] lg:min-h-auto">
+        <div className="lg:col-span-6 bg-stone-50/60 p-4 sm:p-6 md:p-12 lg:p-16 flex items-center justify-center relative min-h-[320px] sm:min-h-[450px] lg:min-h-auto">
           {/* Main Image Container with double borders and deep elegant shadows */}
-          <div className="relative w-full h-full min-h-[250px] sm:min-h-[380px] lg:min-h-[500px] rounded-[16px] overflow-hidden bg-white shadow-[0_24px_50px_-12px_rgba(0,0,0,0.18)] border border-stone-200/80 group flex items-stretch">
+          <div className="relative w-full h-[275px] sm:h-auto min-h-[275px] sm:min-h-[380px] lg:min-h-[500px] rounded-[16px] overflow-hidden bg-white shadow-[0_24px_50px_-12px_rgba(0,0,0,0.18)] border border-stone-200/80 group flex items-stretch">
             <img
               src="https://i.ibb.co.com/Nn3tz33Z/image.png"
               alt="Galaxy Tower Luxury Residential Development in Mohammadpur Dhaka"
@@ -27,8 +41,8 @@ export default function FeaturedProject({ onOpenBooking }: FeaturedProjectProps)
             {/* Elegant double-border frame effect overlay */}
             <div className="absolute inset-3 sm:inset-4 border border-white/10 pointer-events-none rounded-[12px] z-10" />
 
-            {/* Urgency Badge (Compact on mobile) */}
-            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20">
+            {/* Urgency Badge (Compact and right-aligned on mobile, left-aligned on sm screens and up) */}
+            <div className="absolute top-4 right-4 sm:right-auto sm:left-6 sm:top-6 z-20">
               <span className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-3.5 sm:py-2.5 rounded-full bg-charcoal/95 backdrop-blur-md text-gold font-sans font-semibold text-[9px] sm:text-[11px] tracking-wider uppercase shadow-lg border border-gold/30">
                 <span className="h-1.5 w-1.5 rounded-full bg-red-500 inline-block animate-ping shrink-0" />
                 🔴 ONLY 4 UNITS LEFT
@@ -51,18 +65,18 @@ export default function FeaturedProject({ onOpenBooking }: FeaturedProjectProps)
         <div className="lg:col-span-6 bg-white flex items-center">
           <div className="w-full lg:border-l-3 lg:border-gold py-8 sm:py-16 md:py-20 px-4 sm:px-10 lg:px-16 flex flex-col justify-center h-full">
             
-            {/* Project subtitle/label */}
-            <span className="font-sans font-semibold text-[10px] sm:text-xs text-emerald tracking-[0.15em] uppercase block mb-2 sm:mb-3">
+            {/* Project subtitle/label - hidden on mobile, shown on desktop */}
+            <span className="hidden lg:block font-sans font-semibold text-[10px] sm:text-xs text-emerald tracking-[0.15em] uppercase block mb-2 sm:mb-3">
               FEATURED PROJECT
             </span>
 
-            {/* Headline */}
-            <h2 className="font-serif text-xl sm:text-2xl md:text-[34px] font-semibold text-charcoal leading-[1.25] mb-2 sm:mb-3 max-w-xl">
+            {/* Headline - hidden on mobile, shown on desktop */}
+            <h2 className="hidden lg:block font-serif text-xl sm:text-2xl md:text-[34px] font-semibold text-charcoal leading-[1.25] mb-2 sm:mb-3 max-w-xl">
               Galaxy Tower — Luxury Living in the Heart of Mohammadpur
             </h2>
 
-            {/* Location Line */}
-            <div className="flex items-center gap-1.5 text-sage text-xs sm:text-sm mb-5 sm:mb-8">
+            {/* Location Line - hidden on mobile, shown on desktop */}
+            <div className="hidden lg:flex items-center gap-1.5 text-sage text-xs sm:text-sm mb-5 sm:mb-8">
               <MapPin className="h-3.5 w-3.5 text-leaf shrink-0" />
               <span className="line-clamp-2 md:line-clamp-none">Plot-11, Road-08, Chand Udyan, Mohammadpur, Dhaka-1207</span>
             </div>
